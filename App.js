@@ -17,9 +17,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome to React Native Workshop 3!</Text>
-      {/* <StorageDemo /> */}
-      {/* <FetchAPIDemo /> */}
-      {/* <ImageAddDemo /> */}
     </View>
   );
 }

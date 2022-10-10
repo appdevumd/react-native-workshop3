@@ -10,23 +10,17 @@ import {
 import { useState } from 'react';
 
 export default function FetchAPIDemo() {
-  const [catFact, setCatFact] = useState("");
-
-  const getRandomCatFact = async () => {
-    const fact = await (await fetch('https://catfact.ninja/fact')).json();
-    setCatFact(fact.fact);
-  }
 
   return (
     <View style={styles.container}>
 
       <TouchableOpacity 
         style={styles.button}
-        onPress={async () => { await getRandomCatFact()}}>
+        onPress={async () => { }}>
         <Text style={{color: "white"}}>Fetch random cat fact!</Text>
       </TouchableOpacity>
 
-      <Text style={styles.text}>Random cat fact: {catFact}</Text>
+      <Text style={styles.text}>Random cat fact: {}</Text>
 
     </View>
   );
