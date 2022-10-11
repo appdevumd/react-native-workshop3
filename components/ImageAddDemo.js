@@ -13,6 +13,7 @@ import { useState } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 
 export default function ImageAddDemo() {
+  const [image, setImage] = useState(null);
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -35,10 +36,11 @@ export default function ImageAddDemo() {
 
       <TouchableOpacity 
         style={styles.button}
-        onPress={ () => {  }}>
+        onPress={ () => { pickImage() }}>
         <Text style={{color: "white"}}>Add Image!</Text>
       </TouchableOpacity>
 
+      {image && <Image source={{ uri: image }} style={{ width: 300, height: 300 }} />}
     </View>
   );
 }

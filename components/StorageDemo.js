@@ -11,22 +11,43 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState } from 'react';
 
 export default function StorageDemo() {
+  const [text, setText] = useState("");
+  const [retreivedData, setRetreivedData] = useState("");
+
+  const storeData = async(value) => {
+    try {
+      await AsyncStorage.setItem("dataKey", value);
+    } catch (e) {
+      alert(e);
+    }
+  }
+
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('dataKey');
+      if(value !== null) {
+        setRetreivedData(value);
+      }
+    } catch(e) {
+      alert(e);
+    }
+  }
 
   return (
     <View style={styles.container}>
       <TextInput 
       style={styles.input}
-      onChangeText={() => {}} />
+      onChangeText={(t) => setText(t)} />
 
       <TouchableOpacity 
         style={styles.button}
-        onPress={async () => {  } }>
+        onPress={async () => {await storeData(text)} }>
         <Text style={{color: "white"}}>Save this data!</Text>
       </TouchableOpacity>
 
       <TouchableOpacity 
         style={styles.button}
-        onPress={async () => { }}>
+        onPress={async () => { await getData()}}>
         <Text style={{color: "white"}}>Fetch old data!</Text>
       </TouchableOpacity>
 

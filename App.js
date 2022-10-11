@@ -17,6 +17,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome to React Native Workshop 3!</Text>
+      {/* Uncomment one of the following lines at a time
+      to see each of the individual components we built */}
+      {/* <StorageDemo /> */}
+      {/* <FetchAPIDemo /> */}
+      {/* <ImageAddDemo /> */}
     </View>
   );
 }
